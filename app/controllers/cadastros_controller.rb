@@ -12,7 +12,7 @@ class CadastrosController < ApplicationController
 	end	
 
 	def listar
-		@cad = Cadastro.where(deletado_em: nil).order_by(nivel:desc)
+		@cad = Cadastro.where(deletado_em: nil).order(:nivel)
 	end
 
 	def editar

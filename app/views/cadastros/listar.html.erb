@@ -5,9 +5,15 @@ email:<%=cadastro.email%><br>
 idade:<%=cadastro.idade%><br>
 nivel:<%=cadastro.nivel%><br>
 descrição:<%=cadastro.descricao%><br>
+<%if cadastro.selecionar%>
+<strong>garota selecionada</strong><br>
+<%else%>
+<a href="/cadastro/selecionar/<%=cadastro.id%>">selecionar</a><br> 
+<%end%>
 <a href="/cadastro/editar/<%=cadastro.id%>">editar</a>
 <br>
 <br>
 <br>
 <%end%>
+<a href="/cadastro/">novo cadastro</a>
 

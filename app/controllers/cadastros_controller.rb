@@ -8,7 +8,7 @@ class CadastrosController < ApplicationController
 	end	
 
 	def cadastro_params
-		params.require(:cadastro).permit(:nome, :email, :idade, :nivel, :descricao)
+		params.require(:cadastro).permit(:nome, :email, :idade, :nivel, :descricao, :selecionar)
 	end	
 
 	def listar
@@ -22,5 +22,12 @@ class CadastrosController < ApplicationController
 	def atualizar
 		@cadastro = Cadastro.find(params[:id])
 		@cadastro.update(cadastro_params)
+		redirect_to :listar
 	end
+
+	def selecionar
+		@cadastro = Cadastro.find(params[:id])
+		@cadastro.update(selecionar: true)
+		redirect_to :listar
+	end	
 end

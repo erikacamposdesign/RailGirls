@@ -8,11 +8,11 @@ class CadastrosController < ApplicationController
 	end	
 
 	def cadastro_params
-		params.require(:cadastro).permit(:nome, :email, :idade, :nivel, :descricao, :selecionar)
+		params.require(:cadastro).permit(:nome, :email, :idade, :nivel, :descricao, :selecionar, :deletado_em)
 	end	
 
 	def listar
-		@cad = Cadastro.all
+		@cad = Cadastro.where(deletado_em: nil).order(:nivel)
 	end
 
 	def editar
@@ -30,4 +30,10 @@ class CadastrosController < ApplicationController
 		@cadastro.update(selecionar: true)
 		redirect_to :listar
 	end	
+
+	def desativar
+		@cadastro = Cadastro.find(params[:id])
+		@cadastro.update(deletado_em: Time.zone.now)
+		redirect_to listar_path
+	end
 end

@@ -5,5 +5,6 @@ Rails.application.routes.draw do
  get "/cadastro/editar/:id" => "cadastros#editar"
  patch "/cadastro/atualizar/:id" => "cadastros#atualizar", as: :atualizar 
  get "/cadastro/selecionar/:id" => "cadastros#selecionar", as: :selecionar
+ get "/cadastro/desativar/:id" => "cadastros#desativar", as: :desativar
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

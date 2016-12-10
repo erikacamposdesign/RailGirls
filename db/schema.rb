@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210141250) do
+ActiveRecord::Schema.define(version: 20161210172538) do
 
   create_table "cadastros", force: :cascade do |t|
     t.string   "nome"
@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20161210141250) do
     t.integer  "idade"
     t.integer  "nivel"
     t.text     "descricao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "deletado_em"
   end
 
 end
